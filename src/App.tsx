@@ -16,9 +16,9 @@ interface NAME {
 // let nameObj: NAME = { first: "Yamada", last: "Taro" };
 let nameObj: NAME = { first: "Yamada", last: "null" };
 
-const func1 = (x: number, y:number) => {
+const func1 = (x: number, y: number) => {
   return x + y;
-}
+};
 
 // Intersection Types 複数のtypeを結合するもの
 type PROFILE = {
@@ -33,14 +33,38 @@ type LOGIN = {
 
 // この２つの型を結合する
 
-type USER = PROFILE &LOGIN;
+type USER = PROFILE & LOGIN;
 
 const userA: USER = {
-  age:30,
+  age: 30,
   city: "Tokyo",
   username: "xxx",
   password: "yyy",
 };
+
+// Union Types
+let value: boolean | number;
+value = true;
+value = 10;
+
+let arrayUni: (number | string)[];
+value = true;
+value = 10;
+
+// typeof
+let msg: string = "Hi";
+let msg2: typeof msg;
+msg2 = "hello";
+
+let animal = {cat: "small cat"};
+let newAnimal: typeof animal = {cat: "big cat"};
+
+let company: "Facebook" | "Google" | "Amazon"
+company = "Amazon";
+
+let memory: 256 | 512;
+memory = 256;
+
 
 function App() {
   return (
