@@ -95,6 +95,14 @@ const PC2: PC = {
   OSType: OS.Mac,
 }
 
+// 型の互換性
+
+const comp1 = "test";
+let comp2:string = comp1;
+// let comp4:"test" = comp3;   これは無理
+
+let funcComp1 = (x:number) => {};
+let funcComp2 = (y:string) => {};
 
 
 let company: "Facebook" | "Google" | "Amazon"
