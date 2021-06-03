@@ -56,8 +56,8 @@ let msg: string = "Hi";
 let msg2: typeof msg;
 msg2 = "hello";
 
-let animal = {cat: "small cat"};
-let newAnimal: typeof animal = {cat: "big cat"};
+let animal = { cat: "small cat" };
+let newAnimal: typeof animal = { cat: "big cat" };
 
 // keyof
 type KEYS = {
@@ -83,34 +83,40 @@ enum OS {
   Linux,
 }
 interface PC {
-  id: number,
+  id: number;
   OSType: OS;
 }
 const PC1: PC = {
-  id:1,
+  id: 1,
   OSType: OS.Windows,
-}
+};
 const PC2: PC = {
-  id:2,
+  id: 2,
   OSType: OS.Mac,
-}
+};
 
 // 型の互換性
 
 const comp1 = "test";
-let comp2:string = comp1;
+let comp2: string = comp1;
 // let comp4:"test" = comp3;   これは無理
 
-let funcComp1 = (x:number) => {};
-let funcComp2 = (y:string) => {};
+let funcComp1 = (x: number) => {};
+let funcComp2 = (y: string) => {};
 
+// ジェネリクス　Generics
+interface GEN<T> {
+  item: T;
+}
+const gen0: GEN<string> = { item: "hello" };
+// const gen1: GEN = {item: "hello"}; エラー
+const gen2: GEN<number> = { item: 12 };
 
-let company: "Facebook" | "Google" | "Amazon"
+let company: "Facebook" | "Google" | "Amazon";
 company = "Amazon";
 
 let memory: 256 | 512;
 memory = 256;
-
 
 function App() {
   return (
