@@ -112,6 +112,41 @@ const gen0: GEN<string> = { item: "hello" };
 // const gen1: GEN = {item: "hello"}; エラー
 const gen2: GEN<number> = { item: 12 };
 
+interface GEN<T = string> {
+  item: T;
+}
+const gen1: GEN = { item: "hello" };
+
+interface GEN2<T extends string | number> {
+  item: T;
+}
+// const gen4: GEN2<boolean> = {item: true}; エラー
+
+function funcGen<T>(props: T) {
+  return { item: props };
+}
+const gen6 = funcGen("test");
+const gen7 = funcGen<string | null>("test");
+
+function funcGen1<T extends string | null>(props: t) {
+  return { value: props };
+}
+const gen8 = funcGen1("hello");
+
+interface Props {
+  price: number;
+}
+
+function funcGen3<T extends Props>(props: T) {
+  return { value: props.price };
+}
+
+const gen10 = funcGen3({ price: 10 });
+
+const funcGen4 = <T extends Props>(props: T) => {
+  return { value: props.price };
+};
+
 let company: "Facebook" | "Google" | "Amazon";
 company = "Amazon";
 
