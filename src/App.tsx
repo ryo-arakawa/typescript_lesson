@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Data from "./data.json"
+import Data from "./data.json";
+import TestComponent from "./TestComponent";
 
 type USERS = typeof Data;
 
@@ -68,7 +69,6 @@ type KEYS = {
   secondary: string;
 };
 let key: keyof KEYS;
-key: "primary";
 
 // typeof + keyof
 const SPORTS = {
@@ -131,7 +131,7 @@ function funcGen<T>(props: T) {
 const gen6 = funcGen("test");
 const gen7 = funcGen<string | null>("test");
 
-function funcGen1<T extends string | null>(props: t) {
+function funcGen1<T extends string | null>(props: T) {
   return { value: props };
 }
 const gen8 = funcGen1("hello");
@@ -156,12 +156,14 @@ company = "Amazon";
 let memory: 256 | 512;
 memory = 256;
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <TestComponent text="hello from app" />
+      </header>
     </div>
   );
-}
+};
 
 export default App;
