@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Data from "./data.json"
+
+type USERS = typeof Data;
 
 const name = "hello";
 
